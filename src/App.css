@@ -24,15 +24,28 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+input  {
+  min-width: 20vw;
+  min-height: 6vh;
+  margin: 1em;
+  border-radius: 8px;
+  padding: 0.3em 0.3em 0.3em 0.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input:focus{
+  border: 2px solid grey;
+}
+input:active {
+  border: 2px solid grey;
+}
+
+button {
+  padding: 0.5em 0.7em;
+  border-radius: 8px;
+  background-color: whitesmoke;
+}
+
+button:active{
+  border: 1.5px  solid white
 }
