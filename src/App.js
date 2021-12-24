@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
+const STANDARD_BAR = 12;
 function App() {
 	const [valueL1, setValueL1] = useState(null);
 	const [valueQ1, setValueQ1] = useState(null);
@@ -8,6 +9,16 @@ function App() {
 	const [valueL2, setValueL2] = useState(null);
 
 	const [valueQ2, setValueQ2] = useState(null);
+	const [bars, setBars] = useState(0);
+
+	function getBarNeeded() {
+		const totalLength = valueL1 * valueQ1 + valueL2 * valueQ2;
+		let barsNeeded = Math.floor(totalLength / STANDARD_BAR);
+		if (totalLength % STANDARD_BAR > 0) {
+			barsNeeded += 1;
+		}
+		return barsNeeded;
+	}
 
 	return (
 		<div className="App">
@@ -40,9 +51,9 @@ function App() {
 						placeholder="Quantity 2"
 					/>
 				</div>
-				<button onClick={(e) => e.preventDefault()}>Calculate</button>
+				<button onClick={(e) => setBars(getBarNeeded())}>Calculate</button>
 				<p>
-					Min Number of rebars is <code>{0}</code>
+					Min Number of rebars is <code>{bars}</code>
 				</p>
 			</header>
 		</div>
